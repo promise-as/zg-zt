@@ -1,0 +1,484 @@
+@charset "utf-8";
+$txt-hover-color: #2754df;
+$bg-hover-color: #366cd2;
+$bg-color: #f2f2f2;
+$indent: 1em;
+body {
+  overflow-x: auto;
+  min-width: 1200px;
+  font-size: 14px;
+  color: #444;
+  background-color: $bg-color;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a:hover {
+  color: $txt-hover-color;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  *margin-top: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: $txt-hover-color;
+  }
+}
+
+%one {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+%in-b {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+%clearfix {
+  zoom: 1;
+  &:after {
+    clear: both;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+}
+
+input[type="input"],
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  &::-webkit-input-placeholder {
+    color: #999;
+    font-size: inherit;
+  }
+  &:-moz-placeholder {
+    color: #999;
+    font-size: inherit;
+  }
+  &::-moz-placeholder {
+    color: #999;
+    font-size: inherit;
+  }
+  &:-ms-input-placeholder {
+    color: #999;
+    font-size: inherit;
+  }
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  background-color: transparent;
+  font-family: "微软雅黑";
+}
+
+select {
+  border: none;
+  text-indent: $indent;
+}
+
+option {
+  text-indent: $indent;
+  font-family: "微软雅黑";
+}
+
+input[type="text"],
+select {
+  border: none;
+  text-indent: $indent;
+}
+
+input[type="submit"] {
+  border: none;
+}
+
+.hide {
+  display: none;
+}
+
+.wrap {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+/*分页*/
+
+.page-wrap {
+  width: 100%;
+  //border-top: 1px solid #ddd;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  display: box;
+  box-orient: horizontal;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  .page {
+    margin: 30px auto;
+    line-height: 34px;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 555px\9 \0;
+    *width: 555px;
+    *text-align: center;
+    *margin-top: 10px;
+  }
+}
+
+.page a {
+  color: #666;
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  background: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  &.first,
+  &.end {
+    width: 62px;
+    background: #fff;
+  }
+  &.next,
+  &.prev {
+    width: 90px;
+    background: #fff;
+  }
+  &.cur {
+    background: #2c5ffd;
+    color: #fff;
+    border-color: #2c5ffd;
+  }
+  &:hover {
+    background: #2c5ffd;
+    color: #fff;
+    border-color: #2c5ffd;
+  }
+}
+
+/* 头部 */
+.header {
+  padding: 23px 0;
+  background-color: #ffffff;
+  .wrap {
+    @extend %clearfix;
+    .logo {
+      float: left;
+      margin-right: 26px;
+      a {
+        display: block;
+        img {
+          width: 136px;
+          height: 42px;
+        }
+      }
+    }
+    .sublogo {
+      float: left;
+      font-size: 22px;
+      line-height: 28px;
+      padding-top: 6px;
+    }
+    .right {
+      float: right;
+    }
+    .r-study {
+      float: left;
+      padding: 12px 0;
+      font-size: 16px;
+      line-height: 16px;
+      vertical-align: middle;
+      a {
+        color: #333;
+        margin-left: 14px;
+        &:hover {
+          color: $txt-hover-color;
+        }
+      }
+      .s-wap {
+        padding-right: 16px;
+        background: url("../images/icon_1.png") no-repeat right center;
+        cursor: pointer;
+        &:hover {
+          color: $txt-hover-color;
+        }
+      }
+    }
+    .r-login {
+      float: right;
+      margin-left: 20px;
+      a {
+        @extend %in-b;
+        padding: 0 24px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 16px;
+        color: #333;
+        border-radius: 20px;
+        border: solid 1px $bg-hover-color;
+        margin-left: 8px;
+        &:hover {
+          color: #fff;
+          background: $bg-hover-color;
+        }
+      }
+    }
+  }
+}
+
+/* 导航 */
+.zg-nav {
+  font-size: 16px;
+  line-height: 50px;
+  background-color: #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #dddddd;
+  text-align: center;
+  color: #888888;
+  li {
+    @extend %in-b;
+    padding: 0 64px;
+
+    color: #333333;
+  }
+}
+
+.banner {
+  a {
+    display: block;
+    height: 400px;
+  }
+}
+
+// 白色背景和圆角
+.bc-br {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+// 类别
+.zg-class {
+  height: 240px;
+  position: relative;
+  margin-bottom: 30px;
+  .c-cont {
+    @extend .bc-br;
+    width: 100%;
+    height: 100%;
+    padding: 28px 0;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.06);
+    border: solid 1px #f6f6f6;
+    text-align: center;
+    font-size: 0;
+    position: absolute;
+    top: -35px;
+  }
+  li {
+    @extend %in-b;
+    width: 20%;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: relative;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .c-name {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 20px 0 10px;
+    span {
+      font-size: 14px;
+      color: #ff6330;
+      margin-left: 10px;
+    }
+  }
+  .c-code {
+    font-size: 12px;
+    line-height: 12px;
+    color: #888888;
+    margin-bottom: 20px;
+  }
+  .dh {
+    @extend %in-b;
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    background-image: linear-gradient(90deg, #4178e2 0%, #235bc6 100%);
+    border-radius: 17px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .dh-detail {
+    width: 400px;
+    height: 270px;
+    padding: 30px 35px 0;
+    box-sizing: border-box;
+    @extend .bc-br;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.06);
+    border: solid 1px #eeeeee;
+    position: absolute;
+    left: -90px;
+    text-align: left;
+    .d-head{
+      border-bottom: 1px solid #ddd;
+      img{
+        float: left;
+        margin-right: 26px;
+      }
+      .c-name{
+        font-size: 24px;
+      }
+      .c-code{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// 大标题
+.zg-title {
+  @extend %clearfix;
+  .t-l {
+    float: left;
+    font-size: 24px;
+    line-height: 40px;
+    img {
+      height: 40px;
+      margin-right: 10px;
+    }
+  }
+  .t-r {
+    float: right;
+    .r-head {
+      padding: 0 40px 0 16px;
+      line-height: 38px;
+      border-radius: 20px;
+      border: solid 1px #cccccc;
+      cursor: pointer;
+      font-size: 16px;
+      background: url(../images/icon_2.png) no-repeat 88%;
+    }
+  }
+}
+
+/* 底部 */
+.footer {
+  background-color: #fff;
+  padding-top: 38px;
+  .foot-tit {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border-left: solid 4px #ff5e2c;
+    line-height: 1;
+    padding-left: 8px;
+    margin: 12px 0;
+  }
+  .xg {
+    font-size: 14px;
+    color: #666;
+    @extend %in-b;
+    padding: 0 6px 0 12px;
+  }
+  .links-box {
+    padding: 6px 0 10px 0;
+    a {
+      color: #666666;
+      &:hover {
+        color: $txt-hover-color;
+      }
+    }
+  }
+  .btm {
+    @extend %clearfix;
+    padding-bottom: 48px;
+    .left {
+      p {
+        color: #666;
+        span {
+          font-size: 18px;
+          color: #ff5e2c;
+        }
+      }
+    }
+    .right {
+      width: 560px;
+      .ma,
+      .p-box {
+        @extend %in-b;
+        vertical-align: middle;
+        margin-top: 10px;
+      }
+      .p-box {
+        width: 200px;
+        margin-left: 28px;
+        .p1 {
+          font-weight: bold;
+          font-size: 20px;
+          color: #333;
+          span {
+            color: #264994;
+          }
+        }
+        .p2 {
+          color: #999999;
+        }
+      }
+    }
+  }
+  .copyright {
+    background-color: #323c52;
+    height: 44px;
+    p {
+      line-height: 44px;
+      color: #878f9f;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}
