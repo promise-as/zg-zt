@@ -4,41 +4,12 @@ $bg-hover-color: #366cd2;
 $bg-color: #f2f2f2;
 $indent: 1em;
 body {
-  overflow-x: auto;
-  min-width: 1200px;
   font-size: 14px;
   background-color: $bg-color;
 }
 
 p {
   line-height: 1.6;
-}
-
-a:hover {
-  color: $txt-hover-color;
-}
-
-li {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-i {
-  font-style: normal;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  *margin-top: 0;
 }
 
 a {
@@ -117,16 +88,13 @@ select {
 
 select {
   border: none;
-  text-indent: $indent;
 }
 
 option {
-  text-indent: $indent;
   font-family: "微软雅黑";
 }
 
-input[type="text"],
-select {
+input[type="text"] {
   border: none;
   text-indent: $indent;
 }
@@ -233,22 +201,51 @@ input[type="submit"] {
       float: right;
     }
     .r-study {
-      float: left;
-      padding: 12px 0;
+      @extend %in-b;
       font-size: 16px;
-      line-height: 16px;
+      line-height: 40px;
       vertical-align: middle;
       a {
         color: #333;
-        margin-left: 14px;
+        margin-left: 16px;
         &:hover {
           color: $txt-hover-color;
         }
       }
       .s-wap {
-        padding-right: 16px;
-        background: url("../images/icon_1.png") no-repeat right center;
+        @extend %in-b;
         cursor: pointer;
+        margin-right: 4px;
+        position: relative;
+        .s-t {
+          padding: 12px 16px 12px 0;
+          background: url("../images/icon_1.png") no-repeat right center;
+        }
+        .app-download {
+          display: none;
+          width: 245px;
+          height: 168px;
+          padding: 30px 5px 0;
+          box-sizing: border-box;
+          position: absolute;
+          top: 32px;
+          left: -112%;
+          z-index: 100;
+          text-align: center;
+          background: url(../images/app-bg.png) no-repeat;
+          div {
+            @extend %in-b;
+            color: #444444;
+            padding: 0 8px;
+            img {
+              width: 90px;
+              height: 90px;
+            }
+            p {
+              line-height: 30px;
+            }
+          }
+        }
         &:hover {
           color: $txt-hover-color;
         }
@@ -601,7 +598,9 @@ input[type="submit"] {
 }
 
 // 初级会计职称
-#cj, #yj, #zj {
+#cj,
+#yj,
+#zj {
   padding-top: 30px;
 }
 
@@ -623,8 +622,13 @@ input[type="submit"] {
       margin-bottom: 20px;
       span {
         margin-right: 20px;
+        cursor: pointer;
+        &:hover,
+        &.on {
+          color: $txt-hover-color;
+        }
       }
-      .feel {
+      em {
         @extend %in-b;
         padding: 0 10px;
         font-size: 14px;
@@ -684,12 +688,18 @@ input[type="submit"] {
         }
       }
     }
+    .d-file {
+      display: none;
+      &.on {
+        display: block;
+      }
+    }
     .file-tree {
       height: 266px;
       overflow-y: auto;
     }
   }
-  
+
   .c-r {
     float: right;
     width: 320px;
@@ -847,22 +857,22 @@ input[type="submit"] {
     height: 48px;
     @include ells(2);
   }
+  a {
+    float: right;
+    padding: 0 20px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 15px;
+    color: #366cd2;
+    border: 1px solid #366cd2;
+    &:hover {
+      color: #fff;
+      background: #366cd2;
+    }
+  }
   li {
     height: 30px;
     margin-bottom: 10px;
-    a {
-      float: right;
-      padding: 0 20px;
-      height: 28px;
-      line-height: 28px;
-      border-radius: 15px;
-      color: #366cd2;
-      border: 1px solid #366cd2;
-      &:hover {
-        color: #fff;
-        background: #366cd2;
-      }
-    }
   }
   .i-explain {
     @include ells(3);
@@ -870,14 +880,9 @@ input[type="submit"] {
   .i-answer {
     text-align: center;
     padding-top: 20px;
-    .a-btn {
+    a {
+      float: none;
       @extend %in-b;
-      padding: 0 20px;
-      height: 28px;
-      line-height: 28px;
-      border-radius: 15px;
-      color: #366cd2;
-      border: 1px solid #366cd2;
       margin: 0 6px;
     }
   }
@@ -1069,5 +1074,50 @@ input[type="submit"] {
       font-size: 12px;
       text-align: center;
     }
+  }
+}
+
+// 侧边导航
+.side-nav {
+  width: 132px;
+  height: 289px;
+  background: url("../images/r-fixed.png") no-repeat;
+  padding: 80px 15px 0;
+  box-sizing: border-box;
+  text-align: center;
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  ul{
+    height: 78px;
+    padding-top: 16px;
+    box-sizing: border-box;
+  }
+  li {
+    @extend %in-b;
+    color: #fff;
+    line-height: 24px;
+    padding-left: 12px;
+    background: url("../images/icon_7.png") no-repeat left;
+  }
+  select,
+  input {
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  select {
+    color: #333333;
+    padding-left: 8px;
+    background: url('../images/icon_8.png') no-repeat #fff 90%;
+  }
+  input{
+    background-color: #ffffff;
+  }
+  input[type="submit"] {
+    color: #fff;
+    background-image: linear-gradient(90deg, #ff8737 0%, #ff6130 100%);
   }
 }
